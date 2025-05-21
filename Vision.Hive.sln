@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vision.Hive", "Vision.Hive.csproj", "{21E5EBC5-6E71-4182-8989-BF6DE6EF750A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21E5EBC5-6E71-4182-8989-BF6DE6EF750A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E5EBC5-6E71-4182-8989-BF6DE6EF750A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E5EBC5-6E71-4182-8989-BF6DE6EF750A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E5EBC5-6E71-4182-8989-BF6DE6EF750A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A17784B1-B7A7-4A17-8C7B-1387E0AB9165}
+	EndGlobalSection
+EndGlobal
