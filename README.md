@@ -1,22 +1,32 @@
 # 🚀 Vision Hive
 
-**Vision Hive** é uma API RESTful desenvolvida para a empresa Mottu com o objetivo de facilitar o gerenciamento e localização de motos nos pátios operacionais. A aplicação permite o cadastro de **Áreas** e **Motos**, associando motos às suas respectivas áreas, com busca por placa, chassi ou número do motor.
+**Vision Hive** é uma API RESTful desenvolvida para a empresa Mottu com o objetivo de facilitar o gerenciamento e localização de motos nos pátios operacionais. A aplicação organiza motos por **Filiais** e **Pátios**, permitindo controle detalhado e busca eficiente.
 
 ---
 
 ## 🔗 Rotas Disponíveis
 
-### 📍 Área
-| Verbo | Rota              | Descrição                      |
-|-------|-------------------|-------------------------------|
-| GET   | `/api/area`       | Lista todas as áreas          |
-| GET   | `/api/area/{id}`  | Detalha uma área por ID       |
-| POST  | `/api/area`       | Cadastra uma nova área        |
-| PUT   | `/api/area/{id}`  | Atualiza os dados da área     |
-| DELETE| `/api/area/{id}`  | Remove uma área existente     |
+### 🏢 Filial
+| Verbo | Rota                | Descrição                         |
+|-------|---------------------|-----------------------------------|
+| GET   | `/api/filial`       | Lista todas as filiais com pátios |
+| GET   | `/api/filial/{id}`  | Detalha uma filial por ID         |
+| POST  | `/api/filial`       | Cadastra uma nova filial          |
+| PUT   | `/api/filial/{id}`  | Atualiza os dados da filial       |
+| DELETE| `/api/filial/{id}`  | Remove uma filial existente       |
+
+### 🏞️  Pátio
+| Verbo | Rota                | Descrição                         |
+|-------|---------------------|-----------------------------------|
+| GET   | `/api/patio`        | Lista todas os pátios com motos   |
+| GET   | `/api/patio/{id}`   | Detalha um pátio por ID           |
+| POST  | `/api/patio`        | Cadastra um novo pátio            |
+| PUT   | `/api/patio/{id}`   | Atualiza os dados do pátio        |
+| DELETE| `/api/patio/{id}`   | Remove um pátio existente         |
+
 
 ### 🛵 Moto
-| Verbo | Rota                   | Descrição                                      |
+| Verbo | Rota                   | Descrição                                     |
 |-------|------------------------|-----------------------------------------------|
 | GET   | `/api/moto`            | Lista todas as motos cadastradas              |
 | GET   | `/api/moto/{id}`       | Detalha uma moto por ID                       |
@@ -39,15 +49,35 @@
 
 ## 🧪 Exemplos de Testes
 
-### 🔹 Criar Área
+### 🔹 Criar Filial
 
-**POST /api/area**
+**POST /api/filial**
 
 ```json
 {
-  "nome": "Pátio Central"
+  "nome": "Filial Centro",
+  "bairro": "Jardins",
+  "cnpj": "12.345.678/0001-90"
 }
+
 ```
+
+---
+
+### 🔹 Criar Pátio
+
+**POST /api/patio**
+
+```json
+{
+  "nome": "Pátio Central",
+  "limiteMotos": 50,
+  "filialId": "COLE_AQUI_O_ID_DA_FILIAL"
+}
+
+```
+
+> Substitua o filialId pelo valor real retornado no POST de filial.
 
 ---
 
@@ -61,11 +91,12 @@
   "chassi": "9BWZZZ377VT004251",
   "numeroMotor": "MTR1234567",
   "prioridade": "Alta",
-  "areaId": "COLE_AQUI_O_ID_DA_AREA"
+  "patioId": "COLE_AQUI_O_ID_DO_PATIO"
 }
+
 ```
 
-> Substitua o `areaId` pelo valor real retornado no POST de área.
+> Substitua o patioId pelo valor real retornado no POST de pátio.
 
 ---
 
@@ -75,16 +106,17 @@
 
 ---
 
-### 🔹 Detalhar Área com Motos
+### 🔹 Detalhar Pátio com Motos
 
-**GET /api/area/{id}**
+**GET /api/patio/{id}**
 
 **Resposta esperada:**
 
 ```json
 {
-  "id": "area-guid",
+  "id": "patio-guid",
   "nome": "Pátio Central",
+  "limiteMotos": 50,
   "motos": [
     {
       "id": "moto-guid",
@@ -95,9 +127,34 @@
     }
   ]
 }
+
 ```
 
 ---
+
+### 🔹 Detalhar Filial com Pátios
+
+**GET /api/filial/{id}**
+
+**Resposta esperada:**
+
+```json
+{
+  "id": "filial-guid",
+  "nome": "Filial Centro",
+  "bairro": "Jardins",
+  "cnpj": "12.345.678/0001-90",
+  "patios": [
+    {
+      "id": "patio-guid",
+      "nome": "Pátio Central",
+      "limiteMotos": 50
+    }
+  ]
+}
+
+
+```
 
 ## 🚀 Instruções de Execução
 
