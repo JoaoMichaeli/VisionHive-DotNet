@@ -160,7 +160,7 @@
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/VisionHive.git
+   git clone https://github.com/JoaoMichaeli/VisionHive-DotNet.git
    ```
 
 2. Configure a string de conexão Oracle no `appsettings.json`:
